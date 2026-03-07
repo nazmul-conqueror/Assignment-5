@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <!-- Daisyui + Tailwind -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+
+<body>
+    <header class=>
+        <div class="navbar bg-base-100 shadow-sm">
+            <div class="flex-1 flex items-center gap-2 ml-9">
+                <img class="w-[36px]" src="./assets/github-logo.png" alt="">
+                <h1 class="text-2xl font-semibold">GitHub Issues Tracker</h1>
+            </div>
+            <div class="flex gap-6">
+                <input type="text" placeholder="Search issues..." class="input input-bordered w-24 md:w-auto" />
+                    <div class="rounded">
+                        <button class="btn btn-primary mr-5">+ New Issue</button>
+                    </div>
+           </div>
+        </div>
+
+    </header>
+
+    <section class="w-10/12 mx-auto mt-[60px] card  bg-base-100 card-xs shadow-sm">
+     <div class="flex gap-3 p-5 "> 
+        <button onclick="toggleStyle('allBtn')" id="allBtn" class="btn btn-primary w-[120px] ">All</button>
+        <button onclick="toggleStyle('openBtn')"  id="openBtn" class="btn btn-outline w-[120px] ">Open</button>
+        <button onclick="toggleStyle('closedBtn')"  id="closedBtn" class="btn btn-outline w-[120px] ">Closed</button>
+    </div> 
+
+    </section>
+   
+
+    <script src="./script/home.js"></script>
+</body>
+
+</html>

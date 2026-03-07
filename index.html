@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Github-Issue-Tracker</title>
+    <!-- Daisyui + Tailwind -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+
+<body>
+
+    <div class="login-container min-h-screen max-w-lg mx-auto pt-10 bg-slate-200 shadow-2xl mt-15 mb-15 rounded-xl">
+        <div class="login-img space-y-2 flex flex-col items-center mb-9">
+            <img src="./assets/github-logo.png" alt="">
+            <h2 class="text-3xl font-semibold">GitHub Issues Tracker</h2>
+            <p class="text-gray-500">Sign in to manage your issues</p>
+        </div>
+        <div class="login-form ">
+            <div class="card shrink-0 ">
+                <div class="card-body">
+                    <fieldset class="fieldset">
+                        <label class="label font-semibold text-neutral text-[15px]">Username</label>
+                        <input id="userName" type="email" class="input w-full mb-6" placeholder="Enter User name" />
+                        <label class="label font-semibold text-neutral text-[15px]">Password</label>
+                        <input id="password" type="password" class="input w-full mb-6" placeholder="Password" />
+
+                        <button id="login-btn" class="btn btn-neutral mt-4">Login</button>
+
+                    </fieldset>
+                    <hr class="border-t-2 mt-10  border-gray-400">
+
+
+                    <div class=" text-gray-500">
+                       
+                    </div>
+                     <h2 class=" text-center mt-5 ">Demo Credentials:</h2>
+                    <div class="card   card-xs shadow-sm flex justify-center items-center p-6 ">
+                        <p class="text-lg"><span class="font-semibold">Username:</span> admin</p>
+                        <p class="text-lg"><span class="font-semibold">Password:</span> admin123</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+<script src="./script/index.js"></script>
+</body>
+
+</html>
