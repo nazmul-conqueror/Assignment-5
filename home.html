@@ -8,6 +8,7 @@
     <!-- Daisyui + Tailwind -->
     <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -19,23 +20,66 @@
             </div>
             <div class="flex gap-6">
                 <input type="text" placeholder="Search issues..." class="input input-bordered w-24 md:w-auto" />
-                    <div class="rounded">
-                        <button class="btn btn-primary mr-5">+ New Issue</button>
-                    </div>
-           </div>
+                <div class="rounded">
+                    <button class="btn btn-primary mr-5">+ New Issue</button>
+                </div>
+            </div>
         </div>
 
     </header>
 
     <section class="w-10/12 mx-auto mt-[60px] card  bg-base-100 card-xs shadow-sm">
-     <div class="flex gap-3 p-5 "> 
-        <button onclick="toggleStyle('allBtn')" id="allBtn" class="btn btn-primary w-[120px] ">All</button>
-        <button onclick="toggleStyle('openBtn')"  id="openBtn" class="btn btn-outline w-[120px] ">Open</button>
-        <button onclick="toggleStyle('closedBtn')"  id="closedBtn" class="btn btn-outline w-[120px] ">Closed</button>
-    </div> 
+        <div class="flex gap-3 p-5 ">
+            <button onclick="toggleStyle('allBtn')" id="allBtn" class="btn btn-primary w-[120px] ">All</button>
+            <button onclick="toggleStyle('openBtn')" id="openBtn" class="btn btn-outline w-[120px] ">Open</button>
+            <button onclick="toggleStyle('closedBtn')" id="closedBtn" class="btn btn-outline w-[120px] ">Closed</button>
+        </div>
+    </section>
+
+
+    <section class="w-10/12 mx-auto mt-6 card  bg-base-100 card-xs shadow-sm p-4 ">
+        <div class="flex gap-3 items-center justify-between">
+            <div class="flex gap-3 items-center"><span>
+                    <img src="./assets/Aperture.png" alt=""></span>
+                <div>
+                    <h2 class="font-semibold text-xl">50 ISSUES</h2>
+                    <p>Track and manage your project issues</p>
+                </div>
+            </div>
+
+
+            <div class="flex gap-4 items-center">
+                <span class=" size-3 rounded-full bg-green-600"></span>
+                <p>Open</p>
+                <span class=" size-3 rounded-full bg-[#A855F7]"></span>
+                <p>Closed</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="w-10/12 mx-auto card bg-base-100 card-xs shadow-sm  ">
+        <div id="issueCardContainer">
+    
+            <div class="card bg-base-100 w-[256px] shadow-sm">
+                <div class="card-body">
+                    <div class="flex items-center justify-between">
+                        <span><img src="./assets/Open-Status.png" alt=""></span>
+                        <span class="bg-red-100 w-[80px] p-1 rounded-xl text-center text-red-500 text-[13px] font-semibold">High</span>
+                    </div>
+                  <h2 class="font-bold text-base">Fix navigation menu on mobile devices</h2>
+                  <p>The navigation menu doesn't collapse properly on mobile devices...</p>
+                </div>
+                <div class="flex justify-between">
+                    <span class="bg-red-100 w-[80px] p-1 rounded-xl text-center text-red-500 text-[13px] font-semibold">Bug</span>
+                    <span class="bg-red-100 w-[80px] p-1 rounded-xl text-center text-red-500 text-[13px] font-semibold">High</span>
+                </div>
+            </div>
+        </div>
+
 
     </section>
-   
+
+
 
     <script src="./script/home.js"></script>
 </body>
