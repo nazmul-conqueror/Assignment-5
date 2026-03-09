@@ -9,6 +9,12 @@
     <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <link rel="stylesheet" href="style.css">
+
+    <!-- font awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
 </head>
 
 <body>
@@ -30,9 +36,12 @@
 
     <section class="w-10/12 mx-auto mt-[60px] card  bg-base-100 card-xs shadow-sm">
         <div class="flex gap-3 p-5 ">
-            <button onclick="toggleStyle('allBtn'); showAll() " id="allBtn" class="btn btn-primary w-[120px] ">All</button>
-            <button onclick="toggleStyle('openBtn'); showOpen()" id="openBtn" class="btn btn-outline w-[120px] ">Open</button>
-            <button onclick="toggleStyle('closedBtn'); showClosed()" id="closedBtn" class="btn btn-outline w-[120px] ">Closed</button>
+            <button onclick="toggleStyle('allBtn'); showAll() " id="allBtn"
+                class="btn btn-primary w-[120px] ">All</button>
+            <button onclick="toggleStyle('openBtn'); showOpen()" id="openBtn"
+                class="btn btn-outline w-[120px] ">Open</button>
+            <button onclick="toggleStyle('closedBtn'); showClosed()" id="closedBtn"
+                class="btn btn-outline w-[120px] ">Closed</button>
         </div>
     </section>
 
@@ -42,11 +51,14 @@
             <div class="flex gap-3 items-center"><span>
                     <img src="./assets/Aperture.png" alt=""></span>
                 <div class>
-                  <div class="flex gap-2 items-center font-bold"><h2 id="totalIssue" class="font-semibold text-xl">0</h2> <p>Issues</p></div> 
-                   
+                    <div class="flex gap-2 items-center font-bold">
+                        <h2 id="totalIssue" class="font-semibold text-xl">0</h2>
+                        <p>Issues</p>
+                    </div>
+
                     <p>Track and manage your project issues</p>
                 </div>
-                
+
             </div>
 
 
@@ -61,8 +73,7 @@
 
     <section class="w-10/12 mx-auto card bg-base-100 card-xs shadow-sm p-6 ">
         <div id="issueCardContainer" class="grid grid-cols-4 gap-4">
-        
-    
+
             <!-- <div class="card bg-base-100 w-[256px] shadow-sm p-5">
                 <div class="card-body">
                     <div class="flex items-center justify-between">
@@ -81,9 +92,20 @@
                 <p>1/15/2024</p>
             </div> -->
         </div>
-
-
     </section>
+
+
+    <!-- Open the modal using ID.showModal() method -->
+    <!-- <button class="btn" onclick="issuesModal.showModal()">open modal</button> -->
+ 
+
+    <dialog id="issuesModal" class="modal">
+        <div class="modal-box">
+             <div id="modalContainer" class="space-y-4">
+            
+        </div>
+        </div>
+    </dialog>
 
 
 
