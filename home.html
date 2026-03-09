@@ -25,9 +25,9 @@
                 <h1 class="text-2xl font-semibold">GitHub Issues Tracker</h1>
             </div>
             <div class="flex gap-6">
-                <input type="text" placeholder="Search issues..." class="input input-bordered w-24 md:w-auto" />
+                <input id="input-search" type="text" placeholder="Search issues..." class="input input-bordered w-24 md:w-auto" />
                 <div class="rounded">
-                    <button class="btn btn-primary mr-5">+ New Issue</button>
+                    <button id="btn-search" class="btn btn-primary mr-5">Search</button>
                 </div>
             </div>
         </div>
@@ -70,6 +70,10 @@
             </div>
         </div>
     </section>
+
+    <div id="spinner" class="flex justify-center items-center py-10 hidden">
+        <span class="loading loading-dots loading-xl"></span>
+    </div>
 
     <section class="w-10/12 mx-auto card bg-base-100 card-xs shadow-sm p-6 ">
         <div id="issueCardContainer" class="grid grid-cols-4 gap-4">

@@ -32,6 +32,8 @@ let allIssue = [];
 
 
 async function loadAllIssue() {
+    manageSpinner(true);
+
     const res = await fetch("https://phi-lab-server.vercel.app/api/v1/lab/issues")
     const data = await res.json()
     allIssue = data.data
@@ -92,7 +94,7 @@ const displayAllIssue = (allIssue) => {
                   ${labelHTML}
                 </div>
                 <hr class="mt-5 mb-5 bg-slate-100 ">
-                <p>#1by john_doe</p>
+                <p>#1by ${issue.author}</p>
                 <p>1/15/2024</p>
             </div>
        `;
@@ -100,22 +102,58 @@ const displayAllIssue = (allIssue) => {
 
 
     });
-
+    manageSpinner(false);
 }
 
+const manageSpinner =(status) =>{
+    if(status == true){
+        document.getElementById("spinner").classList.remove("hidden")
+        document.getElementById("issueCardContainer").classList.add("hidden")
+    }else {
+        document.getElementById("issueCardContainer").classList.remove("hidden")
+        document.getElementById("spinner").classList.add("hidden")
+    }
+}
+
+
+
+
+
 function showAll() {
-    displayAllIssue(allIssue)
+     manageSpinner(true);
+     setTimeout(() =>{
+        displayAllIssue(allIssue)
+     }, 500);
+
+
+    // displayAllIssue(allIssue)
+   
 }
 
 function showOpen() {
-    const openIssues = allIssue.filter(issue => issue.status === "open")
-    displayAllIssue(openIssues)
+     
+     manageSpinner(true);
+
+    setTimeout(() => {
+        const openIssues = allIssue.filter(issue => issue.status === "open")
+        displayAllIssue(openIssues)
+    }, 500);
+
+    // const openIssues = allIssue.filter(issue => issue.status === "open")
+    // displayAllIssue(openIssues)
+     
+
 }
 
 
 function showClosed() {
-    const closedIssues = allIssue.filter(issue => issue.status === "closed")
+    
+    manageSpinner(true);
+    setTimeout(()=>{
+         const closedIssues = allIssue.filter(issue => issue.status === "closed")
     displayAllIssue(closedIssues)
+    }, 500);
+   
 }
 
 
@@ -146,10 +184,10 @@ const modalLabels = document.getElementById("modalLabels")
 //     modalPriority.innerText = modalDetails.priority
 
 
-    
- 
+
+
 // modalDetails.labels.forEach(label => {
-   
+
 //     console.log(modalDetails.labels)
 
 //     const span = document.createElement("span")
@@ -167,7 +205,7 @@ const modalLabels = document.getElementById("modalLabels")
 //     modalLabels.appendChild(span)
 
 // })
-        
+
 
 
 // }
@@ -191,15 +229,29 @@ const modalLabels = document.getElementById("modalLabels")
 
 
 
-const loadModal = async(id) =>{
+const loadModal = async (id) => {
     const url = `https://phi-lab-server.vercel.app/api/v1/lab/issue/${id}`;
-   
+
     const res = await fetch(url);
-    const details =await res.json();
+    const details = await res.json();
     displayModal(details.data)
 }
-const displayModal = (issue) =>{
+const displayModal = (issue) => {
+
+
+    let modalLabelHTML = ""
+    issue.labels.forEach(label => {
+        modalLabelHTML += `
+             <span class="bg-red-300 rounded-2xl p-1"><i class="fa-solid fa-bug"></i>${label}
+    </span>
+   
     
+  `
+
+    })
+
+
+
     const modalContainer = document.getElementById("modalContainer")
     modalContainer.innerHTML = `
      <h1 id="modalTitle" class="text-2xl font-bold">${issue.title}</h1>
@@ -208,11 +260,7 @@ const displayModal = (issue) =>{
                 <p>22/02/2026</p>
             </div>
             <div class="flex gap-3">
-     <span class="bg-red-300 rounded-2xl p-1"><i class="fa-solid fa-bug"></i> BUG
-    </span>
-    <span class=" rounded-2xl p-1 bg-yellow-300">
-    <i class="fa-brands fa-gg-circle"></i>HELP WANTED
-  </span>
+    ${modalLabelHTML}
 </div>
            
             <p id="modalDes">${issue.description}</p>
@@ -235,14 +283,22 @@ const displayModal = (issue) =>{
 
 }
 
-
-
-
-
-
-
 loadAllIssue();
 
+
+document.getElementById("btn-search").addEventListener("click", ()=>{
+    const input = document.getElementById("input-search");
+    const searchValue = input.value.trim().toLowerCase();
+   
+    
+
+    fetch(`https://phi-lab-server.vercel.app/api/v1/lab/issues/search?q=${searchValue}`)
+    .then((res) => res.json())
+    .then((data) =>{
+        const issues = data.data
+        displayAllIssue(issues)
+    } )
+})
 
 
 

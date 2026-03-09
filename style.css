@@ -1,31 +1,5 @@
- <div id="modalContainer" class="modal-box space-y-4">
-            <h1 id="modalTitle" class="text-2xl font-bold">Fix broken image uploads</h1>
-            <div id="status" class="flex gap-4"><span class="bg-green-600 text-white rounded-2xl p-1">Opened</span>
-                <p>Opened by Fahim Ahmed</p>
-                <p>22/02/2026</p>
-            </div>
-            <div class="flex gap-3">
-     <span class="bg-red-300 rounded-2xl p-1"><i class="fa-solid fa-bug"></i> BUG
+ <span class="bg-red-300 rounded-2xl p-1"><i class="fa-solid fa-bug"></i> BUG
     </span>
     <span class=" rounded-2xl p-1 bg-yellow-300">
     <i class="fa-brands fa-gg-circle"></i>HELP WANTED
   </span>
-</div>
-           
-            <p id="modalDes">The navigation menu doesn't collapse properly on mobile devices. Need to fix the responsive
-                behavior.</p>
-            <div class="card bg-base-100 shadow-sm grid grid-cols-2 p-2">
-                <div>
-                    <p>Assignee:</p>
-                    <p>Fahim Ahmed</p>
-                </div>
-                <div>
-                    <p>Priority:</p>
-                    <p id="modalPriority">High</p>
-                </div>
-            </div>
-            <form method="dialog">
-                <!-- if there is a button in form, it will close the modal -->
-                <button class="btn btn-primary flex flex-end">Close</button>
-            </form>
-        </div>
